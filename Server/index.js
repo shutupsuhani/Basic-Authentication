@@ -9,7 +9,7 @@ import cookieParser from "cookie-parser";
 
 app.use(express.json())
 app.use(cors({
-    origin:["http://localhost:5173"],
+    origin:["https://deploy-authproject.vercel.app"],
     methods:["GET","POST"],
     credentials:true
 }))
