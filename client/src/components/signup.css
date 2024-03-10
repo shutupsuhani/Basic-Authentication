@@ -1,0 +1,90 @@
+.signupcontainer {
+    height: 400px;
+    width: 400px;
+    background-color:white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.forminput {
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    align-items: center;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.Inputfield {
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.inputlabel {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    margin-left: 4px;
+    margin-top: 4px;
+}
+
+.inputarea {
+    width: 90%;
+    height: 30px;
+    margin: auto;
+    align-items: center;
+    display: flex;
+    border-radius: 5px;
+    margin-top: 3px;
+    border: 1px solid rgb(135, 133, 133);
+    
+}
+.inputarea:focus {
+    outline: none;
+}
+
+.registerbutton {
+    background-color: rgb(53, 53, 187);
+    color: white;
+    margin-top: 25px;
+    width: 90%;
+    height: 30px;
+    border: 1px;
+    margin: 25px auto 0; /* Center horizontally and apply margin-top */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    cursor: pointer;
+}
+
+
+.registerbutton:hover {
+    background-color: rgb(80, 80, 212);
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .signupcontainer {
+        width: 90%; /* Adjust container width for smaller screens */
+        height: auto; /* Allow container height to adjust based on content */
+    }
+
+    .registerbutton {
+        width: 80%; /* Adjust button width for smaller screens */
+        max-width: 100px; /* Limit maximum width */
+        height: 40px; /* Adjust button height for smaller screens */
+    }
+}
+
+p{
+    font-size: 14px;
+}
