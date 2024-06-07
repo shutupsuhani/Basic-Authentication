@@ -1,3 +1,4 @@
+//login.jsx
 import { useState } from "react";
 import "../components/signup.css";
 import axios from "axios";
@@ -6,6 +7,13 @@ import { Link, useNavigate } from "react-router-dom";
 const Login = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+
+  const googleAuth = ()=>{
+     window.open(
+       "http://localhost:3000/auth/google/callback",
+       "_self"
+     )
+  }
 
   const navigate = useNavigate();
   axios.defaults.withCredentials=true;
@@ -17,7 +25,7 @@ const Login = () => {
         password,
       })
       .then((response) => {
-        if (response.data.status) navigate("/");
+        if (response.data.status) navigate("/home");
       })
       .catch((err) => {
         console.log(err);
@@ -56,6 +64,8 @@ const Login = () => {
           Login
         </button>
         <p><Link to="/forgot-password">Forgot Password</Link></p>
+        <p className="separator">OR</p>
+        <button onClick={googleAuth} className="logobtn"><img className="googlelogoimg"  src="googlelogo.png"/><span>Sign In with Google</span></button>
         <p>
           Don't Have an Account? <Link to="/signup">Register</Link>
         </p>

@@ -6,10 +6,25 @@ import cors from "cors"
 const app=express();
 import {userRouter} from "./routes/auth.js"
 import cookieParser from "cookie-parser";
+import passport from "passport";
+import cookieSession from "cookie-session";
+import PassportSetup from "./Passport.cjs";
+
 
 app.use(express.json())
+
+app.use(
+    cookieSession({
+    name:'session',
+    keys:["cyberwolve"],
+    maxAge:24*60*60*1000,
+    }))
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(cors({
-    origin:["https://deploy-authproject.vercel.app"],
+    origin:["http://localhost:5173"],
     methods:["GET","POST"],
     credentials:true
 }))
@@ -27,8 +42,4 @@ db.once('open', function() {
 
 app.listen(process.env.PORT,()=>{
     console.log("app is running");
-})
-
-app.get("/",(req,res)=>{
-    res.json("Hello");
 })

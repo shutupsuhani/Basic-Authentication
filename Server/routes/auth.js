@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import User from "../model/User.js";
 import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
+import passport from "passport";
 dotenv.config();
 const router = express.Router();
 
@@ -50,7 +51,7 @@ router.post("/login", async (req, res) => {
   }
 
   const token = jwt.sign({ username: user.username }, process.env.KEY, {
-    expiresIn: "2h",
+    expiresIn: "1d",
   });
   res.cookie("token", token, { httpOnly: true, maxAge: 360000 });
   res.status(200).json({ status: true, message: "Login Successfully" });
@@ -73,8 +74,8 @@ router.post("/forgot-password", async (req, res) => {
     var transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "sahusuhani14@gmail.com",
-        pass: "ylky krrw dhii cqpy",
+        user: process.env.user,
+        pass: process.env.pass,
       },
     });
 
@@ -131,5 +132,32 @@ router.post("/reset-password/:id/:token", async (req, res) => {
     }
   });
 });
+
+router.get("/login/failed",(req,res)=>{
+     res.status(401).json({
+       error:true,
+       message:"login failure"
+     })
+})
+
+router.get(
+     "/google/callback",
+     passport.authenticate("google",{
+       successRedirect:process.env.Client_URL,
+       failureRedirect:"/login/failed"
+     })
+) 
+
+
+
+router.get('/google', (req, res) => {
+  const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.Client_ID}&redirect_uri=${process.env.Client_URL}&response_type=code&scope=profile email`;
+  res.redirect(url);
+});
+
+router.get("/logout",(req,res)=>{
+     req.logout();
+     res.redirect(process.env.Client_URL);
+})
 
 export { router as userRouter };

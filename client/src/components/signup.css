@@ -1,5 +1,5 @@
 .signupcontainer {
-    height: 400px;
+    height: auto;
     width: 400px;
     background-color:white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -87,4 +87,34 @@ h2 {
 
 p{
     font-size: 14px;
+}
+
+
+.logobtn {
+
+    background-color:rgb(243, 246, 248);
+    border-radius: 30px;
+    height: 40px;
+    width: 250px;
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.logobtn:focus {
+     outline: none;
+}
+.googlelogoimg {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+}
+
+.separator {
+    text-align: center;
+    font-weight:600;
+    font-size: 15px;
+    color: rgb(80, 80, 212);
 }

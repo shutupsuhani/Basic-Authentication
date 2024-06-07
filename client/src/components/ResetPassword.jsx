@@ -16,7 +16,7 @@ const ResetPassword = () => {
       .post(`http://localhost:3000/auth/reset-password/${id}/${token}`, { password })
       .then((response) => {
         if (response.data.status==="Success") {
-             navigate("/login")
+             navigate("/")
         }
       })
       .catch((err) => {

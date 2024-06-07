@@ -15,7 +15,7 @@ const Forgotpassword = () => {
       .then((response) => {
         if (response.data.status)
           alert("Check your mail for reset password link");
-        navigate("/login");
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);
