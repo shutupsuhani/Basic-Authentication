@@ -13,7 +13,7 @@ const ResetPassword = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:3000/auth/reset-password/${id}/${token}`, { password })
+      .post(`https://basic-authentication-ten.vercel.app/auth/reset-password/${id}/${token}`, { password })
       .then((response) => {
         if (response.data.status==="Success") {
              navigate("/")

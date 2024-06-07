@@ -10,7 +10,7 @@ const Login = () => {
 
   const googleAuth = ()=>{
      window.open(
-       "http://localhost:3000/auth/google/callback",
+       "https://basic-authentication-ten.vercel.app/auth/google/callback",
        "_self"
      )
   }
@@ -67,7 +67,7 @@ const Login = () => {
         <p className="separator">OR</p>
         <button onClick={googleAuth} className="logobtn"><img className="googlelogoimg"  src="googlelogo.png"/><span>Sign In with Google</span></button>
         <p>
-          Don't Have an Account? <Link to="/signup">Register</Link>
+          Do not Have an Account? <Link to="/signup">Register</Link>
         </p>
       </form>
     </div>

@@ -11,7 +11,7 @@ const Forgotpassword = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/auth/forgot-password", { email })
+      .post("https://basic-authentication-ten.vercel.app/auth/forgot-password", { email })
       .then((response) => {
         if (response.data.status)
           alert("Check your mail for reset password link");

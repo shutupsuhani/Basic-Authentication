@@ -12,7 +12,7 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:3000/auth/signup", {
+    axios.post("https://basic-authentication-ten.vercel.app/auth/signup", {
       username,
       email,
       password,
